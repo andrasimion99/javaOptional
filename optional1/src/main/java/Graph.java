@@ -2,8 +2,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Graph {
-    int nrNoduri;
-    LinkedList<Integer>[] listeAdiacentaArr;
+    private int nrNoduri;
+    private LinkedList<Integer>[] listeAdiacentaArr;
 
     public Graph(int nrNoduri) {
         this.nrNoduri = nrNoduri;
@@ -13,11 +13,11 @@ public class Graph {
         }
     }
 
-    public int getNrNoduri() {
+    public int getnrNoduri() {
         return nrNoduri;
     }
 
-    public LinkedList<Integer>[] getListeAdiacentaArr() {
+    public LinkedList<Integer>[] getlisteAdiacentaArr() {
         return listeAdiacentaArr;
     }
 

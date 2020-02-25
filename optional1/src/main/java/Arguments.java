@@ -4,10 +4,18 @@ public class Arguments {
     public static void main(String args[]) {
         long startTime = System.nanoTime();
         validareNumarArg(args);
-
+        int n, k;
         //parsam primele doua argumente in int
-        int n = Integer.parseInt(args[0]);
-        int k = Integer.parseInt(args[1]);
+        try {
+            n = Integer.parseInt(args[0]);
+            k = Integer.parseInt(args[1]);
+        }
+        catch(NumberFormatException e){
+            System.out.println("n si k trebuie sa fie intregi");
+            return;
+        }
+
+
         int m = args.length - 2;
         Graph graph = new Graph(n);
 
@@ -26,7 +34,7 @@ public class Arguments {
 
         addMuchiigraph(graph, neighborsWords, n); //adaugam muchiile in liste de adiacenta din matricea de adiacenta
         //graph.printListeAdicenta();
-        if(graph.CompConexe() == 1){
+        if (graph.CompConexe() == 1) {
             System.out.println("Graful este conex");
         } else {
             System.out.println("Graful nu este conex");
