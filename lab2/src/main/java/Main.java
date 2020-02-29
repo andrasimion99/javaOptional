@@ -16,23 +16,21 @@ public class Main {
         Depot d2 = new Depot();
         d2.setName("D2");
 
-        Vehicle v1 = new Vehicle();
-        v1.setName("V1");
-        v1.setDepot(d1);
-        Vehicle v2 = new Vehicle();
-        v2.setName("V2");
-        v2.setDepot(d1);
-        Vehicle v3 = new Vehicle();
-        v3.setName("V3");
-        v3.setDepot(d2);
+        Vehicle[] vehicles = new Vehicle[2];
+        vehicles[0] = new Car();
+        vehicles[0].setName("V1");
+        vehicles[0].setDepot(d1);
+        vehicles[1] = new Car("V2", d1);
+        d1.setVehicles(vehicles[0], vehicles[1]);
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle.toString());
+        }
 
-        d1.setVehicles(v1, v2);
-        d2.setVehicles(v3);
+        pb.setClients(c1, c2, c3, c4, c5);
+        pb.setDepots(d1, d2);
+        pb.getVehicles();
 
-        pb.setClients(c1,c2,c3,c4,c5);
-        pb.setDepots(d1,d2);
-
-        System.out.println(Arrays.toString(pb.getClients()));
-        pb.getDepotsName();
+//        System.out.println(Arrays.toString(pb.getClients()));
+//        pb.getDepotsName();
     }
 }

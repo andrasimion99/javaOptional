@@ -1,45 +1,35 @@
-public class Vehicle {
-    private String name;
-    private VehicleType type;
-    private Depot depot;
+import java.util.Objects;
 
-    public Vehicle() {}
+public abstract class Vehicle {
 
-    public Vehicle(String name, VehicleType type, Depot depot) {
-        this.name = name;
-        this.type = type;
-        this.depot = depot;
+    protected String name;
+
+    protected Depot depot;
+
+    public Vehicle() {
     }
 
-    public String getName() {
-        return name;
-    }
+    abstract String getName();
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    abstract void setName(String name);
 
-    public VehicleType getType() {
-        return type;
-    }
+    abstract Depot getDepot();
 
-    public void setType(VehicleType type) {
-        this.type = type;
-    }
+    abstract void setDepot(Depot depot);
 
-    public Depot getDepot() {
-        return depot;
-    }
-
-    public void setDepot(Depot depot) {
-        this.depot = depot;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vehicle)) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Objects.equals(getName(), vehicle.getName()) &&
+                Objects.equals(getDepot(), vehicle.getDepot());
     }
 
     @Override
     public String toString() {
         return "Vehicle{" +
                 "name='" + name + '\'' +
-                ", type=" + type +
                 ", depot=" + depot +
                 '}';
     }
