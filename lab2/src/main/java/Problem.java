@@ -5,9 +5,11 @@ public class Problem {
     private Client[] clients;
     private Vehicle[] vehicles;
     private int numberVehicles;
+    private int numberClients;
 
     public Problem() {
         numberVehicles = 0;
+        numberClients = 0;
     }
 
     public Problem(Depot[] depots, Client[] clients) {
@@ -15,10 +17,14 @@ public class Problem {
         this.clients = clients;
     }
 
+    public int getNumberClients() {
+        return numberClients;
+    }
+
     public int getNumberVehicles() {
         int number = 0;
         for (Depot depot : depots) {
-            number += depot.getVehicles().length;
+            number += depot.getNumberVehicles();
         }
         return number;
     }
@@ -55,6 +61,7 @@ public class Problem {
 
     public void setClients(Client... clients) {
         boolean ok = true;
+        numberClients = clients.length;
         for (int i = 0; i < clients.length; i++) {
             if (ok) {
                 for (int j = 0; j < clients.length; j++) {
@@ -75,13 +82,17 @@ public class Problem {
         }
     }
 
+    public void addVehicle(Vehicle[] vehicles, Vehicle vehicle, int index) {
+        vehicles[index] = vehicle;
+    }
+
     public Vehicle[] getVehicles() {
         vehicles = new Vehicle[getNumberVehicles()];
+        int index = 0;
         for (Depot depot : depots) {
-            for (int i = 0; i < depot.getVehicles().length; i++) {
-                //vehicles[numberVehicles] = new <-----------------AICI E PROBLEMA
-                vehicles[numberVehicles++] = depot.getVehicles()[i];
-
+            for (int i = 0; i < depot.getNumberVehicles(); i++) {
+                addVehicle(vehicles, depot.getVehicles()[i], index);
+                index++;
             }
         }
         return vehicles;
@@ -93,12 +104,5 @@ public class Problem {
                 "depots=" + Arrays.toString(depots) +
                 ", clients=" + Arrays.toString(clients) +
                 '}';
-    }
-
-    public void getDepotsName() {
-        System.out.print("Depots: ");
-        for (Depot depot : depots) {
-            System.out.print(depot.getName() + " ");
-        }
     }
 }

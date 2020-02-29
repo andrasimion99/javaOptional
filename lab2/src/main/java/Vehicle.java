@@ -1,9 +1,7 @@
 import java.util.Objects;
 
 public abstract class Vehicle {
-
     protected String name;
-
     protected Depot depot;
 
     public Vehicle() {

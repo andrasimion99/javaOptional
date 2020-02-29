@@ -8,20 +8,15 @@ public class Drone extends Vehicle {
         return name;
     }
 
-
     public void setName(String name) {
         this.name = name;
     }
-
 
     public Depot getDepot() {
         return depot;
     }
 
-
     public void setDepot(Depot depot) {
         this.depot = depot;
     }
-
-
 }

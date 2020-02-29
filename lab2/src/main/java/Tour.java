@@ -2,7 +2,6 @@ import java.util.Arrays;
 
 public class Tour {
     private Vehicle vehicle;
-
     private Client[] clients;
 
     public Tour() {}

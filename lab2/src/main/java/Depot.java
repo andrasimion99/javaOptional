@@ -4,6 +4,7 @@ import java.util.Objects;
 public class Depot {
     private String name;
     private Vehicle[] vehicles;
+    private int numberVehicles;
 
     public Depot() {
     }
@@ -11,6 +12,10 @@ public class Depot {
     public Depot(String name, Vehicle[] vehicles) {
         this.name = name;
         this.vehicles = vehicles;
+    }
+
+    public int getNumberVehicles() {
+        return numberVehicles;
     }
 
     public String getName() {
@@ -26,6 +31,7 @@ public class Depot {
     }
 
     public void setVehicles(Vehicle... vehicles) {
+        numberVehicles = vehicles.length;
         boolean ok = true;
         for (int i = 0; i < vehicles.length; i++) {
             vehicles[i].setDepot(this);

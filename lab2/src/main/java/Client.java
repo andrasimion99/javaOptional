@@ -2,8 +2,8 @@ import java.util.Objects;
 
 public class Client {
     private String name;
-
     private int order;
+    private boolean checked = false;
 
     public Client() {
     }
@@ -27,6 +27,14 @@ public class Client {
 
     public void setOrder(int order) {
         this.order = order;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
     @Override

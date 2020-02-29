@@ -16,21 +16,22 @@ public class Main {
         Depot d2 = new Depot();
         d2.setName("D2");
 
-        Vehicle[] vehicles = new Vehicle[2];
+        Vehicle[] vehicles = new Vehicle[3];
         vehicles[0] = new Car();
         vehicles[0].setName("V1");
         vehicles[0].setDepot(d1);
-        vehicles[1] = new Car("V2", d1);
+        vehicles[1] = new Truck("V2", d1);
+        vehicles[2] = new Drone("V3", d2);
         d1.setVehicles(vehicles[0], vehicles[1]);
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle.toString());
-        }
+        d2.setVehicles(vehicles[2]);
 
         pb.setClients(c1, c2, c3, c4, c5);
         pb.setDepots(d1, d2);
-        pb.getVehicles();
 
-//        System.out.println(Arrays.toString(pb.getClients()));
-//        pb.getDepotsName();
+        Solution solution = new Solution(pb);
+        solution.createTour();
+        solution.afisare();
+
+        //System.out.println(Arrays.toString(pb.getVehicles()));
     }
 }
