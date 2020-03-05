@@ -14,6 +14,10 @@ public class Depot {
         this.vehicles = vehicles;
     }
 
+    /**
+     *
+     * @return numarul de vehicule din depou
+     */
     public int getNumberVehicles() {
         return numberVehicles;
     }
@@ -30,6 +34,10 @@ public class Depot {
         return vehicles;
     }
 
+    /**
+     * se verifica la adaugarea in depou unicitatea vehiculele pentru acel depou
+     * @param vehicles vehiculele pentru un anumit depou
+     */
     public void setVehicles(Vehicle... vehicles) {
         numberVehicles = vehicles.length;
         boolean ok = true;
@@ -38,8 +46,8 @@ public class Depot {
             if (ok) {
                 for (int j = 0; j < vehicles.length; j++) {
                     if (vehicles[i].equals(vehicles[j]) && i != j) {
-                        System.out.println("Nu putem adauga acelasi depou de doua ori");
-                        System.out.println("Eoare pentru depourile: " + vehicles[i] + "," + vehicles[j]);
+                        System.out.println("Nu putem adauga acelasi vehicul de doua ori");
+                        System.out.println("Eoare pentru vehiculele: " + vehicles[i] + "," + vehicles[j]);
                         ok = false;
                         break;
                     }
@@ -47,7 +55,6 @@ public class Depot {
             } else {
                 break;
             }
-
         }
         if (ok) {
             this.vehicles = vehicles;

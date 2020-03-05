@@ -17,6 +17,11 @@ public class Solution {
         this.tours = tours;
     }
 
+    /**
+     * interschimba valorile campurilor a doua obiecte Client
+     * @param c1 o instanta Client
+     * @param c2 o a doua instanta Client
+     */
     public void swap(Client c1, Client c2) {
         int aux = c1.getOrder();
         c1.setOrder(c2.getOrder());
@@ -27,6 +32,9 @@ public class Solution {
         c2.setName(aux1);
     }
 
+    /**
+     * sorteaza clientii problemei in functie de numarul de ordine
+     */
     public void sortClients() {
         for (int i = 0; i < pb.getNumberClients(); i++) {
             for (int j = i + 1; j < pb.getNumberClients(); j++) {
@@ -47,10 +55,21 @@ public class Solution {
         return orders;
     }
 
+    /**
+     *
+     * @param client obiectul client pe care vreau sa il inserez in array
+     * @param clients array-ul de clienti in care il adaugam
+     * @param index pozitia pe care inseram obiectul client
+     */
     public void addClient(Client client, Client[] clients, int index) {
         clients[index] = client;
     }
 
+    /**
+     * fiecarui tur ii atasam un vehicul
+     * iar pentru fiecare vehicul parcurgem toata lista cu clienti si ii adaugam in ordinea strict crescatoare a numarului de ordine
+     * un client odata adaugat nu va mai fi valabil pentru alt tur
+     */
     public void createTour() {
         int numberVehicles = pb.getNumberVehicles();
         int k = 0;

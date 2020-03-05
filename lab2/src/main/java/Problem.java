@@ -17,10 +17,18 @@ public class Problem {
         this.clients = clients;
     }
 
+    /**
+     *
+     * @return numarul total de clienti din problema
+     */
     public int getNumberClients() {
         return numberClients;
     }
 
+    /**
+     *
+     * @return numarul total de vehicule din problema
+     */
     public int getNumberVehicles() {
         int number = 0;
         for (Depot depot : depots) {
@@ -33,6 +41,10 @@ public class Problem {
         return depots;
     }
 
+    /**
+     * se verifica introducerea in mod unica a depourilor
+     * @param depots depourile respective problemei
+     */
     public void setDepots(Depot... depots) {
         boolean ok = true;
         for (int i = 0; i < depots.length; i++) {
@@ -59,6 +71,10 @@ public class Problem {
         return clients;
     }
 
+    /**
+     * se verifica sa se introduca clientii in mod unic
+     * @param clients clientii care se adauga la problema
+     */
     public void setClients(Client... clients) {
         boolean ok = true;
         numberClients = clients.length;
@@ -66,8 +82,8 @@ public class Problem {
             if (ok) {
                 for (int j = 0; j < clients.length; j++) {
                     if (clients[i].equals(clients[j]) && i != j) {
-                        System.out.println("Nu putem adauga acelasi depou de doua ori");
-                        System.out.println("Eoare pentru depourile: " + clients[i] + "," + clients[j]);
+                        System.out.println("Nu putem adauga acelasi client de doua ori");
+                        System.out.println("Eoare pentru clientii: " + clients[i] + "," + clients[j]);
                         ok = false;
                         break;
                     }
@@ -82,10 +98,20 @@ public class Problem {
         }
     }
 
+    /**
+     *
+     * @param vehicles array-ul de vehicule in care se adauga
+     * @param vehicle vehiculul care trebuie adaugat in array
+     * @param index pozitia pe care se adauga
+     */
     public void addVehicle(Vehicle[] vehicles, Vehicle vehicle, int index) {
         vehicles[index] = vehicle;
     }
 
+    /**
+     *
+     * @return un array cu toate vehiculele din toate depourile
+     */
     public Vehicle[] getVehicles() {
         vehicles = new Vehicle[getNumberVehicles()];
         int index = 0;

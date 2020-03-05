@@ -7,6 +7,7 @@ public class Main {
         c1.setName("C1");
         c1.setOrder(1);
         Client c2 = new Client("C2", 1);
+        
         Client c3 = new Client("C3", 2);
         Client c4 = new Client("C4", 2);
         Client c5 = new Client("C5", 3);

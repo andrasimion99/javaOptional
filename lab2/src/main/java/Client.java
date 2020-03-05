@@ -29,6 +29,11 @@ public class Client {
         this.order = order;
     }
 
+    /**
+     *
+     * @return true daca clientul a fost repartizat in solutie
+     *          false, altfel
+     */
     public boolean isChecked() {
         return checked;
     }
