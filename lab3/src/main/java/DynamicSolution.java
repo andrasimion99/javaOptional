@@ -24,12 +24,24 @@ public class DynamicSolution {
                     m[i][j] = 0;
                 } else if (itemList.get(i - 1).getWeight() <= j) {
                     m[i][j] = Math.max((int) itemList.get(i - 1).getValue() + m[i - 1][(int) Math.round(j - itemList.get(i - 1).getWeight())], (int) Math.round(m[i - 1][j]));
-                    System.out.println(itemList.get(i-1).getName());
+                    //System.out.println(itemList.get(i-1).getName());
                 } else {
                     m[i][j] = m[i - 1][j];
                 }
             }
         }
         maxSum = m[itemList.size()][(int) knapsack.getCapacity()];
+        for (int i = itemList.size(); i > 0 && maxSum > 0; i--) {
+            int elementWeight = (int) this.itemList.get(i - 1).getWeight();
+            int elementValue = (int) this.itemList.get(i - 1).getValue();
+            if (maxSum == m[i - 1][(int) knapsack.getCapacity()])
+                continue;
+            else {
+                //this.knapsack.addItem(this.itemList.get(i - 1));
+                System.out.println(itemList.get(i - 1).getClass() + ": " + itemList.get(i - 1).getName() + ", weight = " + itemList.get(i - 1).getWeight() + ", value = " + itemList.get(i - 1).getValue() + "(profit factor = " + itemList.get(i - 1).profitFactor() + ")");
+                maxSum -= elementValue;
+                knapsack.setCapacity(knapsack.getCapacity() - elementWeight);
+            }
+        }
     }
 }
